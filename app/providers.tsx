@@ -2,13 +2,6 @@
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 
 const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL || "https://placeholder.convex.cloud";
-
-// Log for debugging (remove in production)
-if (typeof window !== 'undefined') {
-  console.log('[ConvexProvider] NEXT_PUBLIC_CONVEX_URL:', process.env.NEXT_PUBLIC_CONVEX_URL);
-  console.log('[ConvexProvider] Using Convex URL:', convexUrl);
-}
-
 const convex = new ConvexReactClient(convexUrl);
 
 export function ConvexClientProvider({
