@@ -15,7 +15,13 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "allowJs": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "convex/**/*",
@@ -23,7 +29,8 @@
     "pages/**/*",
     "components/**/*",
     "lib/**/*",
-    "scripts/**/*"
+    "scripts/**/*",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", "convex/_generated"]
 }
