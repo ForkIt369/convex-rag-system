@@ -235,11 +235,9 @@ export const listVectorMemories = query({
   handler: async (ctx, args) => {
     const limit = args.limit || 50;
     
-    let query = ctx.db.query("vectorMemories");
-    
-    if (args.memoryType) {
-      query = query.withIndex("by_type", (q) => q.eq("memoryType", args.memoryType!));
-    }
+    const query = args.memoryType
+      ? ctx.db.query("vectorMemories").withIndex("by_type", (q) => q.eq("memoryType", args.memoryType!))
+      : ctx.db.query("vectorMemories");
     
     const memories = await query.take(limit);
     
